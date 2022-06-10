@@ -25,7 +25,7 @@ class MemoryRegister:
 
         self._memoryRegister.append(item)
 
-    
+    # inserts requested data into requested index location
     def insertIntoMemoryRegister(self, item, itemIndex):
         self._memoryRegister[itemIndex] = item
 
@@ -34,5 +34,10 @@ class MemoryRegister:
         if self._memoryRegister[itemIndex]:
             self._memoryRegister[itemIndex] = None
     
+    #gets data from requested index location
+    def getItemFromMemoryRegister(self, itemIndex):
+        if self._memoryRegister[itemIndex]:
+            return self._memoryRegister[itemIndex]
+        return "there is no item in this register location"
 
 
