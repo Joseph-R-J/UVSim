@@ -20,7 +20,7 @@ class MemoryRegister:
 
     # appends the indicated item to the end of the memory register
     def appendToMemoryRegister(self, item):
-        if len(self._memoryRegister) >= 1000:
+        if len(self._memoryRegister) >= 100:
             return "register memory is full"
 
         self._memoryRegister.append(item)
@@ -39,5 +39,3 @@ class MemoryRegister:
         if self._memoryRegister[itemIndex]:
             return self._memoryRegister[itemIndex]
         return "there is no item in this register location"
-
-
