@@ -10,7 +10,20 @@ def main():
     "*** -99999 to stop entering your program.     ***",
     sep='\n', end='\n')
 
-    
+    userCount = 0
+    userInstructions = list()
+
+    while True:
+        userInput = input(f"{userCount:02d} ? ")
+
+        if (userInput == "-99999"):
+            break
+
+        # Need something to check userInstructions, and also define at what level were dealing with incorrect program input from user.
+        userInstructions.append(int(userInput))
+        userCount += 1
+
+    print(userInstructions)
 
 if __name__ == "__main__":
     main()
