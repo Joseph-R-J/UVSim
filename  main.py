@@ -1,3 +1,6 @@
+from UvSim import UvSim
+
+
 def main(): 
 
     # User Instructions
@@ -23,7 +26,7 @@ def main():
         userInstructions.append(int(userInput))
         userCount += 1
 
-    print(userInstructions)
+    program = UvSim(userInstructions)
 
 if __name__ == "__main__":
     main()
