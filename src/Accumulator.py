@@ -1,8 +1,21 @@
+
+    
+# Accumulator register class. Single variable for the accumulator, a get and set for that variable
+
 class Accumulator:
     
-    # initialize the Accumulator
-    def __init__(self):
-        register = 0
-    
+    def __init__(self, accumVal = 0): # start with zero
+        self._accumVal = accumVal
+
+    # getter 
+    def getAccum(self):
+        return self._accumVal
+
+    # setter 
+    def setAccum(self, x):
+        self._accumVal = x
+
     def load(self, number):
-        register = number
+        self._accumVal = number
+
+    pass
