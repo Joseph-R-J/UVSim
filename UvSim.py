@@ -1,11 +1,13 @@
 from src.MemoryRegister import MemoryRegister
 from src.InputOutputOperations import InputOutputOperations
 from src.LoadStoreOperations import LoadStoreOperations
+from src.Accumulator import Accumulator
 
 class UvSim:
     def __init__(self, commands):
         self.commands = commands
         self.memory = MemoryRegister()
+        self.accum = Accumulator()
 
     def load_program(self):
         for item in self.commands: self.memory.appendToMemoryRegister(item)
@@ -26,10 +28,10 @@ class UvSim:
                 self.do_write(number)
             # Load
             elif instruction == '20':
-                self.do_load()
+                self.do_load(number)
             # Store
             elif instruction == '21':
-                self.do_store()
+                self.do_store(number)
             # Add
             elif instruction == '30':
                 self.do_add()
@@ -62,8 +64,8 @@ class UvSim:
         InputOutputOperations.read(self.memory, index)
     def do_write(self, index):
         InputOutputOperations.write(self.memory, index)
-    def do_load(self):
-        pass
+    def do_load(self, index):
+        LoadStoreOperations.load(self.memory, self.accum, index)
     def do_store(self):
         pass
     def do_add(self):
