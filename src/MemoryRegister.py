@@ -5,10 +5,11 @@ from contextlib import nullcontext
 
 
 class MemoryRegister:
-
+    
     # initialize the memory register
     def __init__(self):
-        self._memoryRegister = list()
+        self._memoryRegister = [None] * 100
+        self.memorySize = 0
 
     # getter for the memory register
     def getMemoryRegister(self):
@@ -20,10 +21,11 @@ class MemoryRegister:
 
     # appends the indicated item to the end of the memory register
     def appendToMemoryRegister(self, item):
-        if len(self._memoryRegister) >= 100:
+        if self.memorySize >= 100:
             return "register memory is full"
-
-        self._memoryRegister.append(item)
+        else:
+            self._memoryRegister[self.memorySize] = item
+            self.memorySize += 1
 
     # inserts requested data into requested index location
     def insertIntoMemoryRegister(self, item, itemIndex):
@@ -39,3 +41,13 @@ class MemoryRegister:
         if self._memoryRegister[itemIndex]:
             return self._memoryRegister[itemIndex]
         return "there is no item in this register location"
+
+    def memoryRegisterSize(self):
+        return self.memorySize
+
+    def __repr__(self):
+        # Quickly retrieves whats in memory for development purposes.
+        representation = ""
+        for item in self._memoryRegister:
+            representation += str(item) + ", "
+        return representation
