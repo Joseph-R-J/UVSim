@@ -23,10 +23,13 @@ def main():
             break
 
         # Need something to check userInstructions, and also define at what level were dealing with incorrect program input from user.
-        userInstructions.append(int(userInput))
+        userInstructions.append(userInput)
         userCount += 1
 
     program = UvSim(userInstructions)
+    program.load_program()
+    program.execute_program()
+
 
 if __name__ == "__main__":
     main()

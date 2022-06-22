@@ -1,4 +1,4 @@
-import MemoryRegister
+# import MemoryRegister
 
 class LoadStoreOperations:
 
