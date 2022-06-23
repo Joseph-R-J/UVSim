@@ -1,5 +1,4 @@
 
-    
 # Accumulator register class. Single variable for the accumulator, a get and set for that variable
 
 class Accumulator:
