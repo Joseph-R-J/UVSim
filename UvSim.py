@@ -66,8 +66,8 @@ class UvSim:
         InputOutputOperations.write(self.memory, index)
     def do_load(self, index):
         LoadStoreOperations.load(self.memory, self.accum, index)
-    def do_store(self):
-        pass
+    def do_store(self, index):
+        LoadStoreOperations.store(self.memory, self.accum, index)
     def do_add(self):
         pass
     def do_sub(self):

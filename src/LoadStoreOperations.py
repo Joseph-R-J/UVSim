@@ -7,8 +7,7 @@ class LoadStoreOperations:
         accumulator.load(memoryItem)
         return None
 
-
-
     # Store a word from the accumulator into a specific location in memory.
-    def store(MemoryRegisterArray, item, index):
+    def store(MemoryRegisterArray, Accumulator, index):
+        item = Accumulator.grabRegister()
         MemoryRegisterArray.insertIntoMemoryRegister(item, index)
