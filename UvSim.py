@@ -1,6 +1,8 @@
 from src.MemoryRegister import MemoryRegister
 from src.InputOutputOperations import InputOutputOperations
 from src.LoadStoreOperations import LoadStoreOperations
+from src.ArithmeticOperations import ArithmeticOperations
+from src.control import control
 from src.Accumulator import Accumulator
 
 class UvSim:
@@ -34,7 +36,7 @@ class UvSim:
                 self.do_store(number)
             # Add
             elif instruction == '30':
-                self.do_add()
+                self.do_add(number)
             # Subtract
             elif instruction == '31':
                 self.do_sub()
@@ -66,21 +68,21 @@ class UvSim:
         InputOutputOperations.write(self.memory, index)
     def do_load(self, index):
         LoadStoreOperations.load(self.memory, self.accum, index)
-    def do_store(self):
-        pass
+    def do_store(self, index):
+        LoadStoreOperations.store(self.memory, self.accum, index)
     def do_add(self):
-        pass
+        ArithmeticOperations.add(self.memory, self.accum, index)
     def do_sub(self):
-        pass
+        ArithmeticOperations.subtract(self.memory, self.accum, index)
     def do_div(self):
-        pass
+        ArithmeticOperations.divide(self.memory, self.accum, index)
     def do_mult(self):
-        pass
+        ArithmeticOperations.multiply(self.memory, self.accum, index)
     def do_branch(self):
-        pass
+        control.branch()
     def do_branchneg(self):
-        pass
+        control.branchNeg()
     def do_branchzero(self):
-        pass
+        control.branchZero
     def do_halt(self):
-        pass
+        control.halt()

@@ -13,8 +13,4 @@ class Accumulator:
     # setter 
     def setAccum(self, x):
         self._accumVal = x
-
-    def load(self, number):
-        self._accumVal = number
-
-    pass
+        return None
