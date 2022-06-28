@@ -3,9 +3,9 @@ class ArithmeticOperations:
     # add a word from a specific location in memory
     # to the word in the accumulator (leave result in the accumulator)
     def add(MemoryRegister, Accumulator, index):
-        accumVal = Accumulator.getAccum()
+        accumVal = int(Accumulator.getAccum())
         memVal = MemoryRegister.getItemFromMemoryRegister(index)
-        accumVal += memval
+        accumVal += int(memVal)
         Accumulator.setAccum(accumVal)
 
     # subtract a word from a specific location in 
@@ -13,7 +13,7 @@ class ArithmeticOperations:
     def subtract(MemoryRegister, Accumulator, index):
         accumVal = Accumulator.getAccum()
         memVal = MemoryRegister.getItemFromMemoryRegister(index)
-        accumVal -= memval
+        accumVal -= memVal
         Accumulator.setAccum(accumVal)
 
     # divide the word in the accumulator by a word from a specific location 
@@ -21,7 +21,7 @@ class ArithmeticOperations:
     def divide(MemoryRegister, Accumulator, index):
         accumVal = Accumulator.getAccum()
         memVal = MemoryRegister.getItemFromMemoryRegister(index)
-        accumVal /= memval
+        accumVal /= memVal
         Accumulator.setAccum(accumVal)
 
     # multiply a word from a specific location in memory to  
@@ -29,5 +29,5 @@ class ArithmeticOperations:
     def multiply(MemoryRegister, Accumulator, index):
         accumVal = Accumulator.getAccum()
         memVal = MemoryRegister.getItemFromMemoryRegister(index)
-        accumVal *= memval
+        accumVal *= memVal
         Accumulator.setAccum(accumVal)

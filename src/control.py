@@ -1,20 +1,26 @@
 class control:
 
-    def branch(PC, target):
-        return target
+    def branch(index):
+        return index
 
-    def branchNeg(PC, register, target):
+    def branchNeg(accumulator):
+        register = accumulator.getAccum()
+
         if register < 0:
-            return target
-        return PC
+            return True
+        else:
+            return False
 
     def branchZero(PC, register, target):
+        register = accumulator.getAccum()
+        
         if register == 0:
-            return target
-        return PC
+            return True
+        else:
+            return False
 
     def halt():
-        return "-9999"
+        print("*** Simpletron execution is terminated ***")
 
 
 #TEST CASE

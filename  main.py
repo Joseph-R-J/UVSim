@@ -1,7 +1,7 @@
 from UvSim import UvSim
 
 
-def main(): 
+def main():
 
     # User Instructions
     print("*** Welcome to UVSim! ***",
