@@ -1,6 +1,17 @@
 class debugger:
     
     def memdump(mem):
+        for x in range(len(mem)):
+            if type(x) == int:
+                mem[x] = str(mem[x])
+                mem[x] = mem[x].zfill(5)
+
+            if str(mem[x])[0] == "+":
+                mem[x] = mem[x].replace("+", "0")
+
+            if len(mem[x]) != 5:
+                mem[x] = mem[x].zfill(5)
+                
         print("MEMORY")
         print('{:>3s}{:>10s}{:>10s}{:>10s}{:>10s}{:>10s}{:>10s}{:>10s}{:>10s}{:>10s}{:>10s}'.format("","00","01","02","03","04","05","06","07","08","09"))
         i = 0
@@ -10,7 +21,7 @@ class debugger:
 
 
 #Test case
-x = ["00000"] * 100
+x = ["+132"] * 100
 debugger.memdump(x)
 
 #old version of print preserved so I don't have to type it out again if I need it
