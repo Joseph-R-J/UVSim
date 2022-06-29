@@ -4,6 +4,7 @@ from src.LoadStoreOperations import LoadStoreOperations
 from src.ArithmeticOperations import ArithmeticOperations
 from src.control import control
 from src.Accumulator import Accumulator
+from src.debugger import debugger
 
 class UvSim:
     def __init__(self, commands):
@@ -124,12 +125,9 @@ class UvSim:
             "InstructionCounter:", "", "\n",
             "InstructionRegister:", "", "\n",
             "OperationCode:", "", "\n",
-            "Operand:", "\n"
+            "Operand:", "\n", sep=""
         )
 
     def memory_stats(self):
         """Prints out memory to console"""
-        print(
-            "MEMORY:", "\n",
-            self.memory
-        )
+        debugger.memdump(self.memory.getMemoryRegister())

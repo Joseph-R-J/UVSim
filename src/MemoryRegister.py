@@ -8,7 +8,7 @@ class MemoryRegister:
     
     # initialize the memory register
     def __init__(self):
-        self._memoryRegister = [00000] * 100
+        self._memoryRegister = ["00000"] * 100
         self.memorySize = 0
 
     # getter for the memory register
@@ -48,12 +48,6 @@ class MemoryRegister:
     def __repr__(self):
         # Quickly retrieves whats in memory for development purposes.
         representation = ""
-        counter = 0
         for item in self._memoryRegister:
-            if counter % 9 == 0:
-                representation += '\n'
-            item = str(int(item))
-            item = item.rjust(5, '0')
-            representation += item + " "
-            counter += 1
+            representation += str(item) + "  "
         return representation
