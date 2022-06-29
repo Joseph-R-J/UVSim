@@ -126,8 +126,8 @@ class UvSim:
         """Prints simpletron stats to console"""
         print(
             "REGISTERS:", 
-            "Accumulator: ", str(self.accum.getAccum()).ljust(5, '0'), "\n",
-            "InstructionCounter:", "", "\n",
+            "Accumulator: ", str(self.accum.getAccum()).rjust(5, '0'), "\n",
+            "InstructionCounter:", str(self.instruct_counter).rjust(5, '0'), "\n",
             "InstructionRegister:", "", "\n",
             "OperationCode:", "", "\n",
             "Operand:", "\n", sep=""
