@@ -9,5 +9,5 @@ class InputOutputOperations:
     
     # Write a word from a specific location in Memory to screen.
     def write(MemoryRegisterArray, index):
-        print(MemoryRegisterArray.getItemFromMemoryRegister(int(index)))
+        print(f"Contents of {index} is {MemoryRegisterArray.getItemFromMemoryRegister(int(index))}")
         return None

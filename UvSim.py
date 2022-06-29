@@ -81,7 +81,7 @@ class UvSim:
         LoadStoreOperations.load(self.memory, self.accum, index)
 
     def do_store(self, index):
-        print(index)
+        #print(index)
         LoadStoreOperations.store(self.memory, self.accum, index)
 
     def do_add(self, index):
