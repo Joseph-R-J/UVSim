@@ -11,6 +11,8 @@ class UvSim:
         self.commands = commands
         self.memory = MemoryRegister()
         self.accum = Accumulator()
+        self.valid_instructions = [10, 11, 20, 21, 30, 31, 32, 33, 40, 41, 42, 43]
+        self.instruct_counter = 0
         self.pos = 0
 
     def load_program(self):
@@ -64,6 +66,9 @@ class UvSim:
             # Halt
             elif instruction == 43:
                 self.do_halt()
+
+            if instruction in self.valid_instructions:
+                self.instruct_counter += 1
 
             self.pos += 1
 
@@ -119,13 +124,14 @@ class UvSim:
 
     def simpletron_stats(self):
         """Prints simpletron stats to console"""
+        item_from_reg = self.memory.getItemFromMemoryRegister(self.instruct_counter-1)
         print(
-            "REGISTERS:", '\n',
-            "Accumulator:", "", "\n",
-            "InstructionCounter:", "", "\n",
-            "InstructionRegister:", "", "\n",
-            "OperationCode:", "", "\n",
-            "Operand:", "\n", sep=""
+            "REGISTERS:\n", 
+            "Accumulator: ", str(self.accum.getAccum()).rjust(5, '0'), "\n",
+            "InstructionCounter: ", str(self.instruct_counter).rjust(5, '0'), "\n",
+            "InstructionRegister: ", item_from_reg, "\n",
+            "OperationCode: ", int(item_from_reg[1:3]), "\n",
+            "Operand: ", str(int((item_from_reg[0]) + (item_from_reg[3:]))).rjust(2, '0'),"\n", sep=""
         )
 
     def memory_stats(self):
