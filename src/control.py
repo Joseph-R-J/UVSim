@@ -6,7 +6,7 @@ class control:
     def branchNeg(accumulator):
         register = accumulator.getAccum()
 
-        if register < 0:
+        if int(register) < 0:
             return True
         else:
             return False
@@ -14,7 +14,7 @@ class control:
     def branchZero(PC, register, target):
         register = accumulator.getAccum()
         
-        if register == 0:
+        if int(register) == 0:
             return True
         else:
             return False
