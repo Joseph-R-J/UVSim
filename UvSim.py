@@ -133,7 +133,7 @@ class UvSim:
         """Prints simpletron stats to console"""
         item_from_reg = self.memory.getItemFromMemoryRegister(self.instruct_counter-1)
         print(
-            "REGISTERS:\n", 
+            "\nREGISTERS:\n", 
             "Accumulator: ", str(self.accum.getAccum()).rjust(5, '0'), "\n",
             "InstructionCounter: ", str(self.instruct_counter).rjust(5, '0'), "\n",
             "InstructionRegister: ", item_from_reg, "\n",

@@ -1,3 +1,4 @@
+from re import L
 from UvSim import UvSim
 
 
@@ -16,20 +17,26 @@ def main():
     userCount = 0
     userInstructions = list()
 
-    while True:
-        userInput = input(f"{userCount:02d} ? ")
+    method = input("\nFor line by line, enter 1. For all at once, comma delimited, enter 2: ")
+    if method == "1":
+        while True:
+            userInput = input(f"{userCount:02d} ? ")
 
-        if (userInput == "-99999"):
-            break
+            if (userInput == "-99999"):
+                break
 
-        # Need something to check userInstructions, and also define at what level were dealing with incorrect program input from user.
-        userInstructions.append(userInput)
-        userCount += 1
+            # Need something to check userInstructions, and also define at what level were dealing with incorrect program input from user.
+            userInstructions.append(userInput)
+            userCount += 1
+    elif method == "2":
+        commands = input("Enter your commands here, comma delimited:\n\n")
+        userInstructions = commands.split(",")
+        for x in range(len(userInstructions)):
+            userInstructions[x] = userInstructions[x].strip()
 
     program = UvSim(userInstructions)
     program.load_program()
     program.execute_program()
-
 
 if __name__ == "__main__":
     main()

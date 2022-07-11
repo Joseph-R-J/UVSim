@@ -21,8 +21,8 @@ class debugger:
 
 
 #Test case
-x = ["+132"] * 100
-debugger.memdump(x)
+# x = ["+132"] * 100
+# debugger.memdump(x)
 
 #old version of print preserved so I don't have to type it out again if I need it
 #print(f"{str(i).zfill(2)}       {mem[i]}        {mem[i+1]}      {mem[i+2]}      {mem[i+3]}      {mem[i+4]}      {mem[i+5]}      {mem[i+6]}      {mem[i+7]}      {mem[i+8]}      {mem[i+9]}".format("10d"))
