@@ -29,48 +29,55 @@ class UvSim:
         while self.pos < regSize:
             instruction = int(self.memory.getItemFromMemoryRegister(self.pos)[1:3])
             number = int((self.memory.getItemFromMemoryRegister(self.pos)[0]) + (self.memory.getItemFromMemoryRegister(self.pos)[3:]))
-
             # Read
             if instruction == 10:
                 self.do_read(number)
+                self.pos += 1
             # Write
             elif instruction == 11:
                 self.do_write(number)
+                self.pos += 1
             # Load
             elif instruction == 20:
                 self.do_load(number)
+                self.pos += 1
             # Store
             elif instruction == 21:
                 self.do_store(number)
+                self.pos += 1
             # Add
             elif instruction == 30:
                 self.do_add(number)
+                self.pos += 1
             # Subtract
             elif instruction == 31:
                 self.do_sub(number)
+                self.pos += 1
             # Divide
             elif instruction == 32:
                 self.do_div(number)
+                self.pos += 1
             # Multiply
             elif instruction == 33:
                 self.do_mult(number)
+                self.pos += 1
             # Branch
             elif instruction == 40:
-                self.do_branch(number)
+                self.pos = control.branch(number)
             # Branch neg
             elif instruction == 41:
-                self.do_branchneg(number)
+                self.pos = control.branchNeg(self.accum, number, self.pos)
             # Branch zero
             elif instruction == 42:
-                self.do_branchzero(number)
+                self.pos = control.branchZero(self.accum, number, self.pos)
             # Halt
             elif instruction == 43:
                 self.do_halt()
+            else:
+                self.pos += 1
 
             if instruction in self.valid_instructions:
                 self.instruct_counter += 1
-
-            self.pos += 1
 
         self.simpletron_stats()
         self.memory_stats()
