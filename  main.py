@@ -17,7 +17,7 @@ def main():
     userCount = 0
     userInstructions = list()
 
-    method = input("\nFor line by line, enter 1. For all at once, comma delimited, enter 2: ")
+    method = input("\nFor line by line, enter 1. \nFor all at once, comma delimited, enter 2: ")
     if method == "1":
         while True:
             userInput = input(f"{userCount:02d} ? ")
@@ -29,7 +29,7 @@ def main():
             userInstructions.append(userInput)
             userCount += 1
     elif method == "2":
-        commands = input("Enter your commands here, comma delimited:\n\n")
+        commands = input("\nEnter your commands here, comma delimited:\n\n")
         userInstructions = commands.split(",")
         for x in range(len(userInstructions)):
             userInstructions[x] = userInstructions[x].strip()
