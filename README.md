@@ -3,7 +3,13 @@ A simulator for computer science students to learn machine language and computer
 
 UVSim has a 100 line memory.
 
-Users can input commands one line at a time, which are entered into the memory in sequential order. 
+Users can input commands one line or multiple lines at a time, which are entered into the memory in sequential order. 
+
+Users can load, save source file from disk.
+
+Users can use the text field to input source file by using insert, delete, cut, paste, etc.
+
+UVSim can handle 6 digit decimal calculations.
 
 OPERATIONS: 
 
