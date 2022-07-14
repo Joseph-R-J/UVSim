@@ -1,6 +1,6 @@
 from re import L
 from UvSim import UvSim
-from FileLoader import LoadFile
+from src.FileLoader import FileLoader
 
 
 def main():
@@ -35,7 +35,13 @@ def main():
         for x in range(len(userInstructions)):
             userInstructions[x] = userInstructions[x].strip()
     elif method =='3':
-        userInstuctions = fileLoader.LoadFile()
+    #Load from file using the file loader
+        loader = FileLoader()
+        userInstructions = loader.loadFile()
+        print('Commands from file')
+        for command in userInstructions:
+            print(f"{userCount:02d}: {command}")
+            userCount +=1
 
     program = UvSim(userInstructions)
     program.load_program()
